@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Complete B2B Lead Generation & Enrichment System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink:        #0a0f1e;
+    --ink-2:      #1a2340;
+    --surface:    #f4f6fb;
+    --card:       #ffffff;
+    --navy:       #0d1b3e;
+    --blue:       #1a56db;
+    --blue-mid:   #2563eb;
+    --sky:        #3b82f6;
+    --accent:     #f59e0b;
+    --accent-2:   #ef4444;
+    --teal:       #0ea5e9;
+    --muted:      #64748b;
+    --border:     #e2e8f0;
+    --border-2:   #cbd5e1;
+    --glow:       rgba(26,86,219,0.12);
+    --card-shadow: 0 2px 20px rgba(10,15,30,0.07), 0 1px 4px rgba(10,15,30,0.04);
+    --card-hover:  0 8px 40px rgba(26,86,219,0.14), 0 2px 8px rgba(10,15,30,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h1, h2, h3, h4 { font-family: 'Syne', sans-serif; line-height: 1.2; }
+
+  /* ── HEADER / HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #060d24 0%, #0d1b3e 40%, #0f2460 70%, #0a1832 100%);
+    padding: 80px 24px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,86,219,0.22) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 15% 80%, rgba(14,165,233,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(26,86,219,0.25);
+    border: 1px solid rgba(59,130,246,0.4);
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .badge-dot { width: 7px; height: 7px; background: #60a5fa; border-radius: 50%; animation: pulse 2s infinite; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 5vw, 54px);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(90deg, #60a5fa, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: #94a3b8;
+    max-width: 640px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .stat-num.accent { color: var(--accent); }
+  .stat-num.teal   { color: #34d399; }
+  .stat-num.sky    { color: #60a5fa; }
+
+  /* ── INTRO BAND ── */
+  .intro-band {
+    background: var(--navy);
+    padding: 52px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .intro-band-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--sky);
+    opacity: 0.4;
+  }
+
+  .intro-band h2 {
+    font-size: clamp(22px, 3.5vw, 34px);
+    color: #f1f5f9;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .intro-band p {
+    color: #94a3b8;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 760px;
+  }
+
+  .intro-band p + p { margin-top: 14px; }
+
+  .intro-band strong { color: #e2e8f0; font-weight: 500; }
+
+  .intro-problems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .problem-pill {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .problem-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .pi-red   { background: rgba(239,68,68,0.15); }
+  .pi-amber { background: rgba(245,158,11,0.15); }
+  .pi-sky   { background: rgba(14,165,233,0.15); }
+
+  .problem-pill p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .problem-pill strong { color: #e2e8f0; font-size: 14px; display: block; margin-bottom: 4px; }
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+  }
+
+  /* ── QUICK ACCESS ── */
+  .quick-access {
+    background: linear-gradient(135deg, #1e3a6b 0%, #1a2f5e 100%);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 20px;
+    padding: 36px 36px 32px;
+    margin-bottom: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quick-access::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(96,165,250,0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .quick-access h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 6px;
+  }
+
+  .quick-access-sub {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 24px;
+  }
+
+  .qa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .qa-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: block;
+  }
+
+  .qa-item:hover {
+    background: rgba(59,130,246,0.18);
+    border-color: rgba(59,130,246,0.45);
+    transform: translateY(-2px);
+  }
+
+  .qa-item-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .qa-item-label { font-size: 13px; font-weight: 600; color: #e2e8f0; font-family: 'Syne', sans-serif; display: block; margin-bottom: 3px; }
+  .qa-item-count { font-size: 11px; color: #64748b; display: block; }
+
+  /* ── SECTION HEADING ── */
+  .toc-section-head {
+    margin: 56px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .toc-section-head-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .phase-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 18px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .phase-1 { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+  .phase-2 { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+  .phase-3 { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+  .phase-4 { background: #f3e8ff; color: #6b21a8; border: 1px solid #c4b5fd; }
+  .phase-5 { background: #ffe4e6; color: #9f1239; border: 1px solid #fda4af; }
+  .phase-6 { background: #ccfbf1; color: #134e4a; border: 1px solid #5eead4; }
+
+  /* ── CHAPTER CARDS ── */
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    gap: 20px;
+  }
+
+  @media (max-width: 520px) {
+    .chapters-grid { grid-template-columns: 1fr; }
+  }
+
+  .chapter-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+    background: var(--chapter-accent, linear-gradient(90deg, var(--blue), var(--sky)));
+  }
+
+  .chapter-card:hover {
+    box-shadow: var(--card-hover);
+    transform: translateY(-3px);
+    border-color: rgba(26,86,219,0.18);
+  }
+
+  .chapter-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 16px;
+    background: var(--chapter-num-bg, #eff6ff);
+    color: var(--chapter-num-color, var(--blue));
+  }
+
+  .chapter-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+  }
+
+  .chapter-bullets {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .chapter-bullets li {
+    font-size: 13.5px;
+    color: var(--muted);
+    padding: 5px 0;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .chapter-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--blue-mid);
+    font-size: 10px;
+    top: 7px;
+  }
+
+  .chapter-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .meta-block {
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+
+  .meta-purpose { background: #eff6ff; }
+  .meta-transform { background: #f0fdf4; }
+
+  .meta-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .ml-purpose  { color: #1d4ed8; }
+  .ml-transform { color: #16a34a; }
+
+  .meta-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    font-weight: 400;
+  }
+
+  /* asset tags */
+  .asset-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .asset-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 1px solid;
+  }
+
+  .tag-prompt  { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+  .tag-template { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+  .tag-framework { background: #f3e8ff; color: #6b21a8; border-color: #c4b5fd; }
+  .tag-analytics { background: #dcfce7; color: #166534; border-color: #86efac; }
+  .tag-linkedin { background: #e0f2fe; color: #0369a1; border-color: #7dd3fc; }
+  .tag-bonus { background: #ffe4e6; color: #9f1239; border-color: #fda4af; }
+
+  /* ── CONCLUSION & BONUS ── */
+  .special-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+  }
+
+  .special-card.bonus {
+    background: linear-gradient(135deg, #0d1b3e 0%, #0f2460 100%);
+    border-color: rgba(59,130,246,0.3);
+  }
+
+  .special-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .special-card.bonus h3,
+  .special-card.bonus p { color: #e2e8f0; }
+
+  .special-card p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .bonus-assets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .bonus-asset {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ba-icon { font-size: 24px; }
+  .ba-name { font-size: 14px; font-weight: 700; color: #f1f5f9; font-family: 'Syne', sans-serif; }
+  .ba-desc { font-size: 12px; color: #64748b; line-height: 1.4; }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--ink);
+    padding: 36px 24px;
+    text-align: center;
+  }
+
+  .page-footer p { color: #475569; font-size: 13px; }
+  .page-footer strong { color: #64748b; }
+
+  /* ── SCROLL TO TOP ── */
+  .back-top {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 44px; height: 44px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(26,86,219,0.4);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .back-top.visible { opacity: 1; pointer-events: all; }
+  .back-top:hover { background: var(--sky); transform: translateY(-2px); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { padding: 56px 20px 64px; }
+    .intro-band { padding: 40px 20px; }
+    .main-wrap { padding: 44px 16px 72px; }
+    .quick-access { padding: 24px 20px; }
+    .chapter-meta { grid-template-columns: 1fr; }
+    .chapters-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 16px 20px; }
+    .special-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge"><span class="badge-dot"></span> Complete Field Guide · 2025 Edition</div>
+    <h1>Complete B2B Lead Generation<br /><span>&amp; Enrichment System</span></h1>
+    <p class="hero-sub">The definitive AI-powered playbook for sales reps, SDRs, growth marketers, and solopreneurs who are done wasting 60% of their day on leads that never convert.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num accent">12+</span> Chapters</div>
+      <div class="stat"><span class="stat-num sky">50+</span> AI Prompts</div>
+      <div class="stat"><span class="stat-num teal">100+</span> LinkedIn Messages</div>
+      <div class="stat"><span class="stat-num accent">15+</span> Email Templates</div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ INTRODUCTION BAND ═══ -->
+<section class="intro-band" id="intro">
+  <div class="intro-band-inner">
+    <div class="section-label">Introduction</div>
+    <h2>Why 80% of B2B Teams Are Losing the Lead Game</h2>
+    <p>The modern B2B pipeline is broken. Sales reps spend an average of <strong>60% of their working hours</strong> chasing leads that will never convert, manually enriching contacts, and crafting cold outreach from scratch — every single day. The result? Burnout, ballooning cost-per-acquisition (CPM $25–$50), and a pipeline that looks full but produces nothing.</p>
+    <p>This ebook is the antidote. Built on a <strong>battle-tested, AI-driven framework</strong>, it delivers a complete operating system for modern lead generation: from intelligent prospecting on LinkedIn and automated data enrichment, to AI-scored follow-up sequences and a live performance dashboard — all engineered to run in <strong>under 2 hours a day</strong>. AI now predicts lead conversion with 75–85% accuracy. This is your blueprint to leverage that power.</p>
+    <div class="intro-problems">
+      <div class="problem-pill">
+        <div class="problem-icon pi-red">⏱️</div>
+        <div><strong>Time Drain</strong><p>60% of selling time lost to unqualified prospects and manual research</p></div>
+      </div>
+      <div class="problem-pill">
+        <div class="problem-icon pi-amber">💸</div>
+        <div><strong>Rising CPM Costs</strong><p>$25–$50 CPM with plummeting ROI on untargeted outbound</p></div>
+      </div>
+      <div class="problem-pill">
+        <div class="problem-icon pi-sky">🎯</div>
+        <div><strong>No Scoring System</strong><p>No framework to separate A-tier buyers from unqualified noise</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="main-wrap">
+
+  <!-- Quick Access -->
+  <div class="quick-access" id="assets">
+    <h3>⚡ Quick-Access Asset Library</h3>
+    <p class="quick-access-sub">Jump directly to the core downloadable resources inside this system</p>
+    <div class="qa-grid">
+      <a href="#ch7" class="qa-item">
+        <span class="qa-item-icon">🤖</span>
+        <span class="qa-item-label">AI Prompt Vault</span>
+        <span class="qa-item-count">50+ prompts</span>
+      </a>
+      <a href="#ch9" class="qa-item">
+        <span class="qa-item-icon">📧</span>
+        <span class="qa-item-label">Email Templates</span>
+        <span class="qa-item-count">15+ niche templates</span>
+      </a>
+      <a href="#ch6" class="qa-item">
+        <span class="qa-item-icon">💼</span>
+        <span class="qa-item-label">LinkedIn Messages</span>
+        <span class="qa-item-count">100+ connection scripts</span>
+      </a>
+      <a href="#ch5" class="qa-item">
+        <span class="qa-item-icon">📊</span>
+        <span class="qa-item-label">Lead Scoring Formula</span>
+        <span class="qa-item-count">AI-integrated model</span>
+      </a>
+      <a href="#ch8" class="qa-item">
+        <span class="qa-item-icon">⚙️</span>
+        <span class="qa-item-label">Automation Tables</span>
+        <span class="qa-item-count">3-step framework</span>
+      </a>
+      <a href="#ch11" class="qa-item">
+        <span class="qa-item-icon">📈</span>
+        <span class="qa-item-label">Performance Dashboard</span>
+        <span class="qa-item-count">KPI setup guide</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── PHASE 1: The Problem ── -->
+  <div class="toc-section-head">
+    <span class="phase-badge phase-1">⚠ Phase 1 · The Problem</span>
+    <div class="toc-section-head-line"></div>
+  </div>
+
+  <div class="chapters-grid">
+
+    <!-- Chapter 1 -->
+    <div class="chapter-card" style="--chapter-accent: linear-gradient(90deg,#ef4444,#f97316); --chapter-num-bg:#fef2f2; --chapter-num-color:#dc2626;">
+      <div class="chapter-number">01</div>
+      <h3>The Broken Pipeline: Why Traditional B2B Lead Gen Is Costing You Everything</h3>
+      <ul class="chapter-bullets">
+        <li>The $280,000 annual cost of unqualified lead pursuit — calculated per rep</li>
+        <li>The "activity trap": how looking busy destroyed pipeline quality</li>
+        <li>Data decay crisis — why 22.5% of your contact data goes stale every year</li>
+        <li>The ICP illusion: why most teams think they know their buyer, but don't</li>
+      </ul>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Force an honest audit of the status quo and establish the cost of inaction with hard numbers.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From "we just need more leads" to "we need a smarter system to qualify fewer, better leads."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter-card" style="--chapter-accent: linear-gradient(90deg,#f97316,#fbbf24); --chapter-num-bg:#fff7ed; --chapter-num-color:#c2410c;">
+      <div class="chapter-number">02</div>
+      <h3>Know Your Buyer Before They Know You: Mastering the Ideal Customer Profile</h3>
+      <ul class="chapter-bullets">
+        <li>Building an ICP matrix: firmographics, technographics, and behavioral signals</li>
+        <li>The "3-Tier Buyer Pyramid" — champions, influencers, and blockers</li>
+        <li>Interview-to-profile method: mining your top 10 customers for ICP gold</li>
+        <li>Pain-to-priority mapping: aligning your solution to their current initiatives</li>
+      </ul>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Create a sharp, documented ICP that becomes the filter for every lead generation decision.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From vague target market to a precise, data-backed buyer profile you can use in automation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 2: Understanding the New Landscape ── -->
+  <div class="toc-section-head">
+    <span class="phase-badge phase-2">🧠 Phase 2 · Understanding the AI Advantage</span>
+    <div class="toc-section-head-line"></div>
+  </div>
+
+  <div class="chapters-grid">
+
+    <!-- Chapter 3 -->
+    <div class="chapter-card" style="--chapter-accent: linear-gradient(90deg,#3b82f6,#6366f1); --chapter-num-bg:#eff6ff; --chapter-num-color:#1d4ed8;">
+      <div class="chapter-number">03</div>
+      <h3>The AI-Powered Prospecting Revolution: What's Now Possible</h3>
+      <ul class="chapter-bullets">
+        <li>How AI predicts conversion likelihood with 75–85% accuracy — and how to use it</li>
+        <li>The four layers of intent data: declared, behavioral, predictive, and contextual</li>
+        <li>Tools breakdown: Clay, Apollo, Hunter.io, LinkedIn Sales Navigator + AI integrations</li>
+        <li>Building your AI tech stack under $200/month for enterprise-grade results</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-prompt">AI Prompts Inside</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Map the modern AI lead gen landscape and show what tools are non-negotiable vs. optional.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From scattered tool use to a coherent, integrated AI stack with clear roles and ROI.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter-card" style="--chapter-accent: linear-gradient(90deg,#6366f1,#8b5cf6); --chapter-num-bg:#f5f3ff; --chapter-num-color:#6d28d9;">
+      <div class="chapter-number">04</div>
+      <h3>LinkedIn as a Lead Engine: Data Export, Enrichment &amp; Targeting Architecture</h3>
+      <ul class="chapter-bullets">
+        <li>Step-by-step LinkedIn Sales Navigator filter strategy for hyper-targeted lists</li>
+        <li>Legal and compliant LinkedIn data export → CSV workflow with enrichment pipeline</li>
+        <li>Enriching raw contact data with company size, tech stack, funding signals, and more</li>
+        <li>Building segmented lists by vertical, seniority, and buying-stage trigger events</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-linkedin">LinkedIn Workflow</span>
+        <span class="asset-tag tag-prompt">AI Prompts Inside</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Turn LinkedIn into a structured data source that feeds directly into your enrichment pipeline.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From manual LinkedIn scrolling to an automated export-enrich-segment workflow.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 3: The AI System ── -->
+  <div class="toc-section-head">
+    <span class="phase-badge phase-3">⚙ Phase 3 · Building the System</span>
+    <div class="toc-section-head-line"></div>
+  </div>
+
+  <div class="chapters-grid">
+
+    <!-- Chapter 5 -->
+    <div class="chapter-card" id="ch5" style="--chapter-accent: linear-gradient(90deg,#10b981,#059669); --chapter-num-bg:#ecfdf5; --chapter-num-color:#059669;">
+      <div class="chapter-number">05</div>
+      <h3>The AI Lead Scoring Formula: Separating A-Buyers from Noise at Scale</h3>
+      <ul class="chapter-bullets">
+        <li>The 6-factor scoring model: fit, intent, engagement, recency, company health, timing</li>
+        <li>Building your weighted scoring matrix in a spreadsheet + AI-integrated formula</li>
+        <li>Automating lead scoring with GPT-4 prompts + webhook triggers in Zapier/Make</li>
+        <li>Setting score thresholds for SDR handoff, nurture, and disqualification routing</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-framework">Scoring Formula</span>
+        <span class="asset-tag tag-prompt">AI Prompts Inside</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Install a quantitative lead prioritization system that eliminates human bias and guesswork.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From "gut feel" prioritization to a documented, AI-powered scoring engine that routes leads automatically.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 6 -->
+    <div class="chapter-card" id="ch6" style="--chapter-accent: linear-gradient(90deg,#0ea5e9,#22d3ee); --chapter-num-bg:#f0f9ff; --chapter-num-color:#0284c7;">
+      <div class="chapter-number">06</div>
+      <h3>100+ LinkedIn Connection Messages That Actually Get Accepted</h3>
+      <ul class="chapter-bullets">
+        <li>The anatomy of a high-acceptance LinkedIn connection request (under 300 characters)</li>
+        <li>Message library organized by vertical: SaaS, Agency, Consulting, E-commerce, Finance</li>
+        <li>Trigger-based templates: new role, funding rounds, job posts, shared content</li>
+        <li>A/B testing framework for connection messages with tracking methodology</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-linkedin">100+ Messages</span>
+        <span class="asset-tag tag-prompt">AI Prompts Inside</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Provide a ready-to-deploy library of proven connection messages personalized by context.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From a single templated connection request to a dynamic, trigger-personalized approach that 3x acceptance rates.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 7 -->
+    <div class="chapter-card" id="ch7" style="--chapter-accent: linear-gradient(90deg,#f59e0b,#f97316); --chapter-num-bg:#fffbeb; --chapter-num-color:#b45309;">
+      <div class="chapter-number">07</div>
+      <h3>The 50+ AI Prompt Vault: LinkedIn, Email, Scoring &amp; Research</h3>
+      <ul class="chapter-bullets">
+        <li>15 LinkedIn prospecting prompts: profile analysis, list building, ICP matching</li>
+        <li>20 cold email writing prompts: subject lines, hooks, pain reframes, CTAs</li>
+        <li>10 lead scoring &amp; research prompts: company analysis, buying signal detection</li>
+        <li>Full prompt engineering guide: variables, context-setting, and output formatting</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-prompt">50+ AI Prompts</span>
+        <span class="asset-tag tag-linkedin">LinkedIn Prompts</span>
+        <span class="asset-tag tag-template">Email Prompts</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Deliver a complete, categorized prompt library that makes AI an instant productivity multiplier.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From spending hours on manual research and writing to generating qualified outputs in minutes per day.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 8 -->
+    <div class="chapter-card" id="ch8" style="--chapter-accent: linear-gradient(90deg,#8b5cf6,#a855f7); --chapter-num-bg:#faf5ff; --chapter-num-color:#7c3aed;">
+      <div class="chapter-number">08</div>
+      <h3>The 3-Step Automation Framework: Enrich → Build → Sequence</h3>
+      <ul class="chapter-bullets">
+        <li><strong>Table 1 — Lead Enrichment:</strong> Input fields, enrichment sources, output data points, and automation triggers</li>
+        <li><strong>Table 2 — Cold Email Builder:</strong> Dynamic variable mapping, tone selector, industry context injection</li>
+        <li><strong>Table 3 — Follow-Up Sequences:</strong> Day-by-day cadence rules, channel mix (email/LinkedIn/phone), exit conditions</li>
+        <li>Connecting the framework with no-code automation (Make.com / Zapier / n8n)</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-framework">3-Step Framework</span>
+        <span class="asset-tag tag-prompt">AI Prompts Inside</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Give readers a repeatable, interactive workflow that connects every stage of outbound from data to reply.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From a disconnected set of tools to a single automated pipeline that runs with minimal human intervention.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 4: Implementation ── -->
+  <div class="toc-section-head">
+    <span class="phase-badge phase-4">📬 Phase 4 · Implementation &amp; Templates</span>
+    <div class="toc-section-head-line"></div>
+  </div>
+
+  <div class="chapters-grid">
+
+    <!-- Chapter 9 -->
+    <div class="chapter-card" id="ch9" style="--chapter-accent: linear-gradient(90deg,#a855f7,#ec4899); --chapter-num-bg:#fdf4ff; --chapter-num-color:#9333ea;">
+      <div class="chapter-number">09</div>
+      <h3>15+ Niche-Specific Cold Email Templates That Convert</h3>
+      <ul class="chapter-bullets">
+        <li>Templates by vertical: SaaS, Professional Services, E-commerce, Healthcare, Finance</li>
+        <li>The "PASC" framework for every email: Pain, Agitate, Solution, Call-to-action</li>
+        <li>Short-form vs. long-form emails: when to use each and why 97-word emails win</li>
+        <li>Subject line swipe file: 30+ tested subject lines with open rate benchmarks</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-template">15+ Templates</span>
+        <span class="asset-tag tag-prompt">AI Prompts Inside</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Provide a fully customizable, niche-specific email template library built for modern inboxes.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From generic, spray-and-pray cold emails to hyper-relevant, personalized outreach by segment.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 10 -->
+    <div class="chapter-card" style="--chapter-accent: linear-gradient(90deg,#ec4899,#f43f5e); --chapter-num-bg:#fff1f2; --chapter-num-color:#e11d48;">
+      <div class="chapter-number">10</div>
+      <h3>Multi-Channel Follow-Up Sequences: The 8-Touch Cadence System</h3>
+      <ul class="chapter-bullets">
+        <li>The psychological rationale for 8 touches across 21 days — and where most reps stop</li>
+        <li>Channel sequencing: email → LinkedIn → video DM → phone → email → LinkedIn (repeat)</li>
+        <li>Day-by-day scripts for every touchpoint, including "breakup" and re-engagement messages</li>
+        <li>Conditional branching: how to adapt the sequence to opens, clicks, replies, and silences</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-template">Sequence Scripts</span>
+        <span class="asset-tag tag-linkedin">LinkedIn Steps</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Design a persistence system that nurtures without annoying and maximizes reply rates across channels.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From giving up after 2 emails to a systematic 8-touch sequence that extracts maximum pipeline value.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 5: Results & Analytics ── -->
+  <div class="toc-section-head">
+    <span class="phase-badge phase-5">📊 Phase 5 · Results &amp; Analytics</span>
+    <div class="toc-section-head-line"></div>
+  </div>
+
+  <div class="chapters-grid">
+
+    <!-- Chapter 11 -->
+    <div class="chapter-card" id="ch11" style="--chapter-accent: linear-gradient(90deg,#ef4444,#f97316); --chapter-num-bg:#fef2f2; --chapter-num-color:#b91c1c;">
+      <div class="chapter-number">11</div>
+      <h3>Building Your Performance Dashboard: From Open Rates to Revenue</h3>
+      <ul class="chapter-bullets">
+        <li>The 5 KPIs every outbound team must track: Open, Click, Reply, Meeting Book, Close rates</li>
+        <li>Setting up a live dashboard in Google Sheets, Notion, or HubSpot — with templates</li>
+        <li>Benchmarks by industry: what "good" looks like for cold email and LinkedIn outreach</li>
+        <li>Weekly reporting cadence and leading vs. lagging indicator framework</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-analytics">Analytics Setup</span>
+        <span class="asset-tag tag-framework">Dashboard Template</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Install a measurement system that turns gut feelings into data-driven decisions and budget justifications.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From "I think it's working" to a real-time dashboard that shows pipeline health at a glance.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 12 -->
+    <div class="chapter-card" style="--chapter-accent: linear-gradient(90deg,#0ea5e9,#3b82f6); --chapter-num-bg:#f0f9ff; --chapter-num-color:#0369a1;">
+      <div class="chapter-number">12</div>
+      <h3>Rapid Iteration: Testing, Learning, and Optimizing Your System Weekly</h3>
+      <ul class="chapter-bullets">
+        <li>A/B testing cadence: one variable at a time, statistical significance basics for non-data scientists</li>
+        <li>The "Friday Sprint" protocol: 30-minute weekly review to tune your messaging and targeting</li>
+        <li>When to kill a sequence vs. iterate — decision tree based on performance thresholds</li>
+        <li>Quarterly ICP refresh: feeding new performance data back into your targeting model</li>
+      </ul>
+      <div class="asset-tags">
+        <span class="asset-tag tag-analytics">Optimization Framework</span>
+      </div>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Create a habit of systematic optimization so your system compounds in performance over time.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From static campaigns that decay to a continuously improving machine that gets smarter every week.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 6: Scaling ── -->
+  <div class="toc-section-head">
+    <span class="phase-badge phase-6">🚀 Phase 6 · Scaling &amp; Sustainability</span>
+    <div class="toc-section-head-line"></div>
+  </div>
+
+  <div class="chapters-grid">
+
+    <!-- Chapter 13 -->
+    <div class="chapter-card" style="--chapter-accent: linear-gradient(90deg,#14b8a6,#10b981); --chapter-num-bg:#f0fdfa; --chapter-num-color:#0d9488;">
+      <div class="chapter-number">13</div>
+      <h3>Scaling the System: From Solo Operator to Team-Wide Deployment</h3>
+      <ul class="chapter-bullets">
+        <li>SOPs for onboarding new SDRs into the AI-powered system in under 3 days</li>
+        <li>Centralizing your prompt vault, template library, and scoring rubric in a shared workspace</li>
+        <li>Roles and responsibilities: who owns list-building, enrichment, sequencing, and analytics</li>
+        <li>Budget scaling model: stack ROI analysis as you grow from 1 to 10+ reps</li>
+      </ul>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Make your personal system transferable and repeatable across an entire revenue team.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From a solo playbook to a fully documented team operating system that scales without losing quality.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 14 -->
+    <div class="chapter-card" style="--chapter-accent: linear-gradient(90deg,#06b6d4,#0ea5e9); --chapter-num-bg:#ecfeff; --chapter-num-color:#0e7490;">
+      <div class="chapter-number">14</div>
+      <h3>Deliverability, Compliance &amp; Reputation: Protecting Your Pipeline</h3>
+      <ul class="chapter-bullets">
+        <li>Email warm-up protocol: domain health, SPF/DKIM/DMARC setup, and sending ramp strategy</li>
+        <li>CAN-SPAM, GDPR, and CASL compliance checklist for global outbound campaigns</li>
+        <li>LinkedIn safety: usage limits, account health signals, and avoiding automation detection</li>
+        <li>Reputation recovery playbook for domains or accounts that have been flagged</li>
+      </ul>
+      <div class="chapter-meta">
+        <div class="meta-block meta-purpose">
+          <div class="meta-label ml-purpose">🎯 Chapter Purpose</div>
+          <div class="meta-text">Protect the infrastructure that makes your entire outbound system possible and legally sound.</div>
+        </div>
+        <div class="meta-block meta-transform">
+          <div class="meta-label ml-transform">⚡ Key Transformation</div>
+          <div class="meta-text">From risk-blind outbound to a compliant, deliverability-optimized system that reaches inboxes reliably.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONCLUSION ── -->
+  <div style="margin-top: 56px;">
+    <div class="toc-section-head">
+      <span class="phase-badge phase-1">✅ Conclusion</span>
+      <div class="toc-section-head-line"></div>
+    </div>
+    <div class="special-card">
+      <h3>The 2-Hour Pipeline: What Changes Now</h3>
+      <p>You now hold a complete operating system for B2B lead generation built for the AI era. From constructing your Ideal Customer Profile and exporting enriched LinkedIn data, to deploying AI-scored sequences and measuring performance in a live dashboard — every chapter in this system has been engineered to compound on the last.</p>
+      <p style="margin-top:14px;">The professionals who will dominate their category over the next 3 years won't work harder. They'll run smarter systems. This is yours. The only thing left to do is implement it — one chapter, one workflow, one A+ lead at a time.</p>
+      <div style="margin-top:24px; padding: 20px 24px; background: #f8fafc; border-left: 4px solid var(--blue); border-radius: 0 12px 12px 0;">
+        <p style="font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 6px;">"You don't need more leads. You need better signal, faster execution, and a system that runs without you watching it."</p>
+        <p style="font-size: 13px; color: var(--muted);">— The core thesis of this entire system</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BONUS TOOLKIT ── -->
+  <div style="margin-top: 32px;">
+    <div class="toc-section-head">
+      <span class="phase-badge phase-4">🎁 Bonus Toolkit</span>
+      <div class="toc-section-head-line"></div>
+    </div>
+    <div class="special-card bonus">
+      <h3>🎁 Your Complete Asset Bundle</h3>
+      <p>Everything you need to run the system from day one — no additional purchases, no paywalls.</p>
+      <div class="bonus-assets">
+        <div class="bonus-asset">
+          <span class="ba-icon">🤖</span>
+          <span class="ba-name">AI Prompt Vault</span>
+          <span class="ba-desc">50+ categorized prompts for LinkedIn, email writing, lead scoring, and research — copy-paste ready.</span>
+        </div>
+        <div class="bonus-asset">
+          <span class="ba-icon">📧</span>
+          <span class="ba-name">Email Template Pack</span>
+          <span class="ba-desc">15+ niche-specific cold email templates with subject line variants and personalization fields.</span>
+        </div>
+        <div class="bonus-asset">
+          <span class="ba-icon">💼</span>
+          <span class="ba-name">LinkedIn Message Library</span>
+          <span class="ba-desc">100+ connection request messages organized by trigger, vertical, and buyer seniority level.</span>
+        </div>
+        <div class="bonus-asset">
+          <span class="ba-icon">📊</span>
+          <span class="ba-name">Lead Scoring Spreadsheet</span>
+          <span class="ba-desc">Pre-built Google Sheet with 6-factor weighted scoring formula and AI prompt integration.</span>
+        </div>
+        <div class="bonus-asset">
+          <span class="ba-icon">⚙️</span>
+          <span class="ba-name">Automation Framework Tables</span>
+          <span class="ba-desc">Interactive 3-table framework: Lead Enrichment, Cold Email Builder, and Follow-up Sequences.</span>
+        </div>
+        <div class="bonus-asset">
+          <span class="ba-icon">📈</span>
+          <span class="ba-name">Performance Dashboard</span>
+          <span class="ba-desc">Ready-made reporting template with Open, Click, Reply, Meeting, and Conversion rate tracking.</span>
+        </div>
+        <div class="bonus-asset">
+          <span class="ba-icon">🔗</span>
+          <span class="ba-name">LinkedIn Export Workflow</span>
+          <span class="ba-desc">Step-by-step SOP for data export → enrichment → segmentation → outreach pipeline setup.</span>
+        </div>
+        <div class="bonus-asset">
+          <span class="ba-icon">📋</span>
+          <span class="ba-name">Compliance Checklist</span>
+          <span class="ba-desc">GDPR, CAN-SPAM, and CASL compliance audit checklist for global outbound campaigns.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="page-footer">
+  <p><strong>Complete B2B Lead Generation &amp; Enrichment System</strong> · 2025 Edition</p>
+  <p style="margin-top:6px;">For B2B Sales Reps · SDRs · Growth Marketers · Solopreneurs</p>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+  const btn = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Staggered card entrance animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = `${(i % 2) * 0.08}s`;
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.chapter-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(16px)';
+    card.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+    observer.observe(card);
+  });
+
+  // Add animate-in class effect
+  const style = document.createElement('style');
+  style.textContent = '.animate-in { opacity: 1 !important; transform: translateY(0) !important; }';
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
